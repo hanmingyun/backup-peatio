@@ -14,7 +14,7 @@ Peatio::Application.routes.draw do
   if Rails.env.development?
     mount MailsViewer::Engine => '/mails'
   end
-
+  get '/coinmarketcap' => 'welcome#coinmarketcap', :as => :coinmarketcap
   get '/signin' => 'sessions#new', :as => :signin
   get '/signup' => 'identities#new', :as => :signup
   get '/signout' => 'sessions#destroy', :as => :signout
@@ -122,8 +122,10 @@ Peatio::Application.routes.draw do
   end
   post '/webhooks/tx' => 'webhooks#tx'
   post '/webhooks/eth' => 'webhooks#eth'
+  post '/webhooks/adk' => 'webhooks#adk'
 
   draw :admin
+  post '/webhooks/tx' => 'webhooks#tx'
   mount APIv2::Mount => APIv2::Mount::PREFIX
 
 end

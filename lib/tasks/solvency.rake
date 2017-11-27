@@ -46,7 +46,7 @@ namespace :solvency do
           puts "address balances fetched."
         rescue OpenURI::HTTPRedirect => e
           proof.addresses = []
-          puts "#{type} is not supported by blockr.io yet. Unable to fetch address balances automatically."
+          puts "#{type} is not supported by blockcypher.com yet. Unable to fetch address balances automatically."
         end
       end
 
